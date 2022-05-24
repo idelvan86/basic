@@ -30,6 +30,7 @@
                 <tr>
                     <th scope="col">Nº Marca</th>
                     <th scope="col">Nome Marca</th>
+                    <!--<th scope="col">Caminho Imagem</th> -->
                     <th scope="col">Imagem Marca</th>
                     <th scope="col">Criado em</th>
                     <th scope="col">Action</th>
@@ -41,7 +42,8 @@
                 <tr>
                     <th scope="row">{{ $marca->firstItem()+$loop->index }} </th>
                     <td>{{ $m->marca_nome }}</td>
-                    <td>{{ $m->marca_imagem }}</td>
+                    <!--<td>{{ $m->marca_imagem }}</td> -->
+                    <td><img src="{{ asset($m->marca_imagem) }} " style="height:40px; width:70px;"> </td>
                     <td>
                         @if($m->created_at == NULL)
                             <span class="text-danger">Sem Data</span>
@@ -50,8 +52,8 @@
                         @endif
                     </td>
                     <td>
-                    <a href="{{ url('marca/edit/'.$m->id)}}" class="btn btn-info"> editar</a>
-                    <a href="{{ url('marca/delete/'.$m->id)}}" class="btn btn-danger"> apagar</a>
+                    <a href="{{ url('marcas/edit/'.$m->id)}}" class="btn btn-info"> editar</a>
+                    <a href="{{ url('marcas/delete/'.$m->id)}}" class="btn btn-danger"> apagar</a>
                     </td>
 
                 </tr>
@@ -67,7 +69,8 @@
     <div class="card">
         <div class="card-header"> Adicionar Marca </div>
             <div class="card-body">
-                <form action="{{ route('salvar.marca') }}" method="POST"> 
+                <form action="{{ route('salvar.marca') }}" method="POST" enctype="multipart/form-data"> 
+
                 @csrf
                 <div class="form-group">
                     <label for="">Nome da Marca</label>
