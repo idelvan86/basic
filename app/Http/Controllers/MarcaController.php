@@ -55,6 +55,44 @@ class MarcaController extends Controller
         return view('admin.marca.edit',compact('marcas'));
     }
 
+    public function Update(Request $request,$id){
+
+        $validated = $request->validate([
+            'marca_nome' => 'required|min:4',
+            
+        ],
+        [
+            'marca_nome.required' => 'Por favor informe a Marca!',
+            'marca_imagem.min' => 'Poucos caracteres na Marca "menos de 4 caracteres"',
+        ]);
+
+        //Pegar Endereço da Imagem antiga
+        $antiga_imagem = $request-> antiga_imagem;
+
+        //Gerar Nome do Arquivo e informar local onde será salvo!
+        $marca_imagem = $request->file('marca_imagem');
+        
+        $gera_nome     = hexdec(uniqid());
+        $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
+        $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
+        $local_salvar  = 'image/marca/';
+        $salvar_imagem = $local_salvar. $imagem_nome;
+
+        $marca_imagem->move($local_salvar,$imagem_nome);
+        
+        unlink($antiga_imagem);
+        //Atualizar 
+        Marca::find($id)->update([
+            'marca_nome' => $request -> marca_nome,
+            'marca_imagem' =>  $salvar_imagem,
+            'updated_at'    => Carbon::now()
+        ]);
+   
+        return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+
+
+    }
+
 
 
 }
