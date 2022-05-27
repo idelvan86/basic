@@ -53,7 +53,7 @@
                     </td>
                     <td>
                     <a href="{{ url('marcas/edit/'.$m->id)}}" class="btn btn-info"> editar</a>
-                    <a href="{{ url('marcas/delete/'.$m->id)}}" class="btn btn-danger"> apagar</a>
+                    <a href="{{ url('marcas/delete/'.$m->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
                     </td>
 
                 </tr>

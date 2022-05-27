@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Image;
 
 
 class MarcaController extends Controller
 {
     public function AllMarca(){
-   
+        // Teste de Conexão com dois bancos de dados
+        //$marca = DB::connection('mysql2')->select('SELECT * FROM noticias');
+
         $marca = Marca::latest()->paginate(5);
         return view('admin.marca.index' , compact('marca'));
    
@@ -21,27 +24,39 @@ class MarcaController extends Controller
 
         $validated = $request->validate([
             'marca_nome' => 'required|unique:marcas|min:4',
-            'marca_imagem' => 'required|mimes:jpg.jpeg,png',
+            'marca_imagem' => 'required|mimes:jpg,jpeg,png',
         ],
         [
             'marca_nome.required' => 'Por favor informe a Marca!',
             'marca_nome.min' => 'Poucos caracteres na Marca "menos de 4 caracteres"',
         ]);
 
-//Gerar Nome do Arquivo e informar local onde será salvo!
-        $marca_imagem = $request->file('marca_imagem');
+        //---------------------------------------------------------------------------------------------
+        //Gerar Nome do Arquivo e informar local onde será salvo!
+        // $marca_imagem = $request->file('marca_imagem');
         
-        $gera_nome     = hexdec(uniqid());
-        $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
-        $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
-        $local_salvar  = 'image/marca/';
-        $salvar_imagem = $local_salvar. $imagem_nome;
+        // $gera_nome     = hexdec(uniqid());
+        // $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
+        // $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
+        // $local_salvar  = 'image/marca/';
+        // $salvar_imagem = $local_salvar. $imagem_nome;
 
-        $marca_imagem->move($local_salvar,$imagem_nome);
-//Salvar 
+        // $marca_imagem->move($local_salvar,$imagem_nome);
+        //---------------------------------------------------------------------------------------------
+        //Gerar Imagem Intervensão editando o tamanho da imagem 
+
+        $marca_imagem = $request->file('marca_imagem');
+
+        $gera_nome = hexdec(uniqid()).'.'.$marca_imagem->getClientOriginalExtension();
+        Image::make($marca_imagem)->resize(100,100)->save('image/marca/'.$gera_nome);
+        $salvar_imagem = 'image/marca/'.$gera_nome;
+
+        //---------------------------------------------------------------------------------------------
+
+        //Salvar 
         Marca::insert([
-            'marca_nome' => $request -> marca_nome,
-            'marca_imagem' =>  $salvar_imagem,
+            'marca_nome'    => $request -> marca_nome,
+            'marca_imagem'  => $salvar_imagem,
             'created_at'    => Carbon::now()
         ]);
    
@@ -72,25 +87,52 @@ class MarcaController extends Controller
         //Gerar Nome do Arquivo e informar local onde será salvo!
         $marca_imagem = $request->file('marca_imagem');
         
-        $gera_nome     = hexdec(uniqid());
-        $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
-        $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
-        $local_salvar  = 'image/marca/';
-        $salvar_imagem = $local_salvar. $imagem_nome;
 
-        $marca_imagem->move($local_salvar,$imagem_nome);
+        if( $marca_imagem){
+
+            $gera_nome     = hexdec(uniqid());
+            $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
+            $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
+            $local_salvar  = 'image/marca/';
+            $salvar_imagem = $local_salvar. $imagem_nome;
+
+            $marca_imagem->move($local_salvar,$imagem_nome);
+            
+            unlink($antiga_imagem);
+            //Atualizar 
+            Marca::find($id)->update([
+                'marca_nome' => $request -> marca_nome,
+                'marca_imagem' =>  $salvar_imagem,
+                'updated_at'    => Carbon::now()
+            ]);
+
+            return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+
+        }
+
+        else{
+
+            Marca::find($id)->update([
+                'marca_nome' => $request -> marca_nome,
+                'updated_at'    => Carbon::now()
+            ]);
+
+          return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+    
+        }
+
+    }
+
+    public function Delete($id){
+
+        $imagem = Marca::find($id);
+        $atual_imagem = $imagem-> marca_imagem;
+        unlink($atual_imagem);
         
-        unlink($antiga_imagem);
-        //Atualizar 
-        Marca::find($id)->update([
-            'marca_nome' => $request -> marca_nome,
-            'marca_imagem' =>  $salvar_imagem,
-            'updated_at'    => Carbon::now()
-        ]);
-   
-        return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+        Marca::find($id)->delete();
 
-
+        return Redirect()->back()->with('success','Marca Deletada com sucesso!');
+       
     }
 
 

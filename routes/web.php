@@ -56,7 +56,7 @@ Route::get('/marcas/todas',[MarcaController::class,'AllMarca'])->name('all.marca
 Route::post('/marcas/adicionar',[MarcaController::class,'AddMarca'])->name('salvar.marca');
 Route::get('/marcas/edit/{id}',[MarcaController::class,'EditMarca']);
 Route::post('/marcas/update/{id}',[MarcaController::class,'Update']);
-
+Route::get('/marcas/delete/{id}',[MarcaController::class,'Delete']);
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
