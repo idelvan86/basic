@@ -58,6 +58,12 @@ Route::get('/marcas/edit/{id}',[MarcaController::class,'EditMarca']);
 Route::post('/marcas/update/{id}',[MarcaController::class,'Update']);
 Route::get('/marcas/delete/{id}',[MarcaController::class,'Delete']);
 
+
+//imagens routes
+
+Route::get('/imagens/todas',[MarcaController::class,'Multimagem'])->name('multi.imagem');
+
+
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
 //$users = User::all();

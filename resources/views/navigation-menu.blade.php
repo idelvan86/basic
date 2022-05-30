@@ -24,6 +24,10 @@
                         Marca
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{route('multi.imagem')}} " >
+                        Imagens
+                    </x-jet-nav-link>
+
                 </div>
             </div>
 

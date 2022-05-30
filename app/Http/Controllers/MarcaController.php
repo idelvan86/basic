@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Marca;
+use App\Models\Multimagem;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
@@ -136,5 +137,17 @@ class MarcaController extends Controller
     }
 
 
+    // imagens metodo
+
+
+    public function Multimagem(){
+        // Teste de Conexão com dois bancos de dados
+        //$marca = DB::connection('mysql2')->select('SELECT * FROM noticias');
+
+        //$imagens = Multimagem::latest()->paginate(5);
+        $imagens = Multimagem::All();
+        return view('admin.multimagem.index',compact('imagens'));
+   
+    }
 
 }
