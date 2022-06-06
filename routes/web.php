@@ -62,7 +62,7 @@ Route::get('/marcas/delete/{id}',[MarcaController::class,'Delete']);
 //imagens routes
 
 Route::get('/imagens/todas',[MarcaController::class,'Multimagem'])->name('multi.imagem');
-
+Route::post('/imagens/adicionar',[MarcaController::class,'Addimagens'])->name('salvar.imagens');
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){

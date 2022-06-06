@@ -150,4 +150,51 @@ class MarcaController extends Controller
    
     }
 
+    public function Addimagens(Request $request){
+
+ 
+        //---------------------------------------------------------------------------------------------
+        //Gerar Nome do Arquivo e informar local onde será salvo!
+        // $marca_imagem = $request->file('marca_imagem');
+        
+        // $gera_nome     = hexdec(uniqid());
+        // $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
+        // $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
+        // $local_salvar  = 'image/marca/';
+        // $salvar_imagem = $local_salvar. $imagem_nome;
+
+        // $marca_imagem->move($local_salvar,$imagem_nome);
+        //---------------------------------------------------------------------------------------------
+        //Gerar Imagem Intervensão editando o tamanho da imagem 
+
+        $imagens = $request->file('imagens');
+
+        //inicio foreach
+        foreach($imagens as $multi_img){ 
+
+        $gera_nome = hexdec(uniqid()).'.'.$multi_img->getClientOriginalExtension();
+        Image::make($multi_img)->resize(100,100)->save('image/multimagens/'.$gera_nome);
+
+        $salvar_imagem = 'image/multimagens/'.$gera_nome;
+
+        //---------------------------------------------------------------------------------------------
+
+        //Salvar 
+        Multimagem::insert([
+
+            'imagem'  => $salvar_imagem,
+            'created_at'    => Carbon::now()
+
+        ]);
+   
+    } //fim do foreach
+
+        return Redirect()->back()->with('success','Imagens inseridas com sucesso!');
+
+    }
+
+
+
+
+
 }

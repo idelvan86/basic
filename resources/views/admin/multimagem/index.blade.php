@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             
-            Todas as Imagens <b></b>
+            Varias Imagens <b></b>
                   <b  style="float:right;"> 
                     <span class="badge bg-danger"></span> 
                   </b>
@@ -28,7 +28,7 @@
     
             <thead>
                 <tr>
-                    <th scope="col">Nº imagem</th>
+                    
                  
                     <!--<th scope="col">Caminho Imagem</th> -->
                     <th scope="col">Imagem</th>
@@ -40,7 +40,7 @@
          <!-- @php($i = 1) -->
                @foreach($imagens as $m)
                 <tr>
-                    <th scope="row">{{ $marca->firstItem()+$loop->index }} </th>
+                   
                     <!--<td>{{ $m->marca_imagem }}</td> -->
                     <td><img src="{{ asset($m->imagem) }} " style="height:40px; width:70px;"> </td>
                     <td>
@@ -68,14 +68,14 @@
     <div class="card">
         <div class="card-header"> Adicionar Imagens </div>
             <div class="card-body">
-                <form action="{{ route('salvar.marca') }}" method="POST" enctype="multipart/form-data"> 
+                <form action="{{ route('salvar.imagens') }}" method="POST" enctype="multipart/form-data"> 
 
                 @csrf
                 
 
                 <div class="form-group">
-                    <label for="">Marca Imagem</label>
-                    <input type="file" name="marca_imagem" class="form-control" id="categoria" placeholder="Nova categoria">
+                    <label for="">Multi Imagens</label>
+                    <input type="file" name="imagens[]" multiple="" id="marca_imagem" class="form-control" placeholder="Nova categoria" >
                     @error('marca_imagem')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
