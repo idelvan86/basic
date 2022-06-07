@@ -14,6 +14,19 @@
             <div class="row">
                 <div class="col-md-8">
 
+            
+<div class=" card-group">
+    @foreach($imagens as $i)
+        <div class="col-md-3">
+            <div card class="card">
+                <img src="{{ asset($i->imagem) }}" alt="">
+            </div>
+        </div>
+    @endforeach
+</div>
+
+<!--// modelo igual a Marcas -->                
+<!--
                     <div class="card">
                       @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,7 +35,7 @@
                         </div>
                       @endif
 
-                      <div class="card-header"> Todas Marcas </div>
+                      <div class="card-header"> Todas Imagens </div>
 
             <table class="table table-dark table-striped">
     
@@ -30,18 +43,18 @@
                 <tr>
                     
                  
-                    <!--<th scope="col">Caminho Imagem</th> -->
+                    <th scope="col">Caminho Imagem</th> 
                     <th scope="col">Imagem</th>
                     <th scope="col">Criado em</th>
                     <th scope="col">Action</th>
                 </tr>   
             </thead>
             <tbody>
-         <!-- @php($i = 1) -->
+          @php($i = 1) 
                @foreach($imagens as $m)
                 <tr>
                    
-                    <!--<td>{{ $m->marca_imagem }}</td> -->
+                    <td>{{ $m->marca_imagem }}</td> 
                     <td><img src="{{ asset($m->imagem) }} " style="height:40px; width:70px;"> </td>
                     <td>
                         @if($m->created_at == NULL)
@@ -59,9 +72,8 @@
                @endforeach
             </tbody>
             </table>
-           
+            -->     
 
-  </div>
 </div>
 
 <div class="col-md-4">
