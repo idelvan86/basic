@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class categoriaController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('auth');
+        
+
+    }
+
+
     public function AllCat(){
         //Pegar todos os dados
         //$categorias = categoria::all();

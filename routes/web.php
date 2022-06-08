@@ -70,3 +70,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
     $users = DB::table('users')->get();
     return view('dashboard',compact('users'));
 })->name('dashboard');
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
