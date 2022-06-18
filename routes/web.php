@@ -67,10 +67,11 @@ Route::post('/imagens/adicionar',[MarcaController::class,'Addimagens'])->name('s
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
 //$users = User::all();
-    $users = DB::table('users')->get();
-    return view('dashboard',compact('users'));
+    //$users = DB::table('users')->get();
+    //return view('dashboard',compact('users'));
+    return view('admin.admin_master.blade');
 })->name('dashboard');
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
+})->middleware('auth')->name('verification.notice'); 
