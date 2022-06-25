@@ -1083,6 +1083,9 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mt-auto {
+  margin-top: auto;
+}
 .-mt-px {
   margin-top: -1px;
 }
@@ -1106,9 +1109,6 @@ select {
 }
 .mb-0 {
   margin-bottom: 0px;
-}
-.mt-auto {
-  margin-top: auto;
 }
 .block {
   display: block;
