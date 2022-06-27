@@ -75,3 +75,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice'); 
+
+Route::get('/user/logout',[MarcaController::class,'Logout'])->name('user.logout');

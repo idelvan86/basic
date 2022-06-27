@@ -193,7 +193,10 @@ class MarcaController extends Controller
 
     }
 
-
+    public function Logout(){
+           Auth::logout();
+           return Redirect()->route('login')->with('success','Usuario deslogado');
+    }
 
 
 
