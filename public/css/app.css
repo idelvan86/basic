@@ -983,6 +983,10 @@ select {
 .relative {
   position: relative;
 }
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
 .inset-0 {
   top: 0px;
   right: 0px;
@@ -1113,6 +1117,9 @@ select {
 }
 .mb-0 {
   margin-bottom: 0px;
+}
+.mr-auto {
+  margin-right: auto;
 }
 .block {
   display: block;
@@ -1585,6 +1592,9 @@ select {
 }
 .pl-0 {
   padding-left: 0px;
+}
+.pt-3 {
+  padding-top: 0.75rem;
 }
 .pb-5 {
   padding-bottom: 1.25rem;
