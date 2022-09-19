@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\HomeController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -64,6 +65,10 @@ Route::get('/marcas/delete/{id}',[MarcaController::class,'Delete']);
 
 Route::get('/imagens/todas',[MarcaController::class,'Multimagem'])->name('multi.imagem');
 Route::post('/imagens/adicionar',[MarcaController::class,'Addimagens'])->name('salvar.imagens');
+
+// Admin Rotas
+
+Route::get('/imagens/todas',[HomeController::class,'HomeSlider'])->name('home.slider');
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
