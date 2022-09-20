@@ -68,7 +68,9 @@ Route::post('/imagens/adicionar',[MarcaController::class,'Addimagens'])->name('s
 
 // Admin Rotas
 
-Route::get('/imagens/todas',[HomeController::class,'HomeSlider'])->name('home.slider');
+Route::get('/home/slider',[HomeController::class,'HomeSlider'])->name('home.slider');
+Route::get('/add/slider',[HomeController::class,'AddSlider'])->name('add.slider');
+
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){

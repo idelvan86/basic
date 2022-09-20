@@ -7,7 +7,7 @@
             <div class="row">
 
                 <h4>Home SLider</h4>
-                <a href="">  <button type="button" class="btn btn-info"> Adicionar Slider </button>  </a>
+                <a href="{{ route('add.slider') }}">  <button type="button" class="btn btn-info"> Adicionar Slider </button>  </a>
 <br><br>
 
                 <div class="col-md-12">
