@@ -9,14 +9,14 @@
             <h2>Adicionar Slider</h2>
         </div>
         <div class="card-body">
-            <form>
+        <form action="{{ route('salvar.slider') }}" method="POST" enctype="multipart/form-data"> 
+            @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Titulo Slider</label>
                     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="informe o titulo" required>
                     
                 </div>
             
- 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descrição</label>
                     <textarea class="form-control" id="textarea" name="descricao" rows="3"></textarea>
