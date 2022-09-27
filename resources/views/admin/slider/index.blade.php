@@ -35,16 +35,16 @@
                 </tr>   
             </thead>
             <tbody>
-         <!-- @php($i = 1) -->
+          @php($i = 1)
                @foreach($sliders as $s)
                 <tr>
-                    <th scope="row">{{$sliders->firstItem()+$loop->index }} </th>
+                    <th scope="row">{{$i++ }} </th>
                     <td>{{ $s->title }}</td>
-                    <td>{{ $S->descricao }}</td>
+                    <td>{{ $s->descricao }}</td>
                     <td><img src="{{ asset($s->imagem) }} " style="height:40px; width:70px;"> </td>
                     <td>
-                    <a href="{{ url('slider/edit/'.$m->id)}}" class="btn btn-info"> editar</a>
-                    <a href="{{ url('slider/delete/'.$m->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
+                    <a href="{{ url('slider/edit/'.$s->id)}}" class="btn btn-info"> editar</a>
+                    <a href="{{ url('slider/delete/'.$s->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
                     </td>
 
                 </tr>

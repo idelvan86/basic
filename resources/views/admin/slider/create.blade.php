@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     <label for="ile1">Enviar arquivo</label>
-                    <input type="file" class="form-control-file" name="imagemslider" id="exampleFormControlFile1">
+                    <input type="file" class="form-control-file" name="imgslider" id="exampleFormControlFile1">
                 </div>
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">
                     <button type="submit" class="btn btn-primary btn-default">Submit</button>
