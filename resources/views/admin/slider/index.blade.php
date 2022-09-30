@@ -26,12 +26,12 @@
     
             <thead>
                 <tr>
-                    <th scope="col">Nº Marca</th>
-                    <th scope="col">Slider Titulo</th>
+                    <th scope="col" width="5%">Nº Marca</th>
+                    <th scope="col" width="15%">Slider Titulo</th>
                     <!--<th scope="col">Caminho Imagem</th> -->
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Imagem</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" width="25%">Descrição</th>
+                    <th scope="col" width="15%">Imagem</th>
+                    <th scope="col" width="15%">Action</th>
                 </tr>   
             </thead>
             <tbody>
