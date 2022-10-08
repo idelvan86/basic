@@ -5,6 +5,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SobreController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -71,6 +72,12 @@ Route::post('/imagens/adicionar',[MarcaController::class,'Addimagens'])->name('s
 Route::get('/home/slider',[HomeController::class,'HomeSlider'])->name('home.slider');
 Route::get('/add/slider',[HomeController::class,'AddSlider'])->name('add.slider');
 Route::post('/salvar/slider',[HomeController::class,'SalvarSlider'])->name('salvar.slider');
+
+
+// Sobre Paginas
+
+Route::get('/home/sobre',[SobreController::class,'HomeAbout'])->name('home.sobre');
+
 
 
 //Parte administrativa do site

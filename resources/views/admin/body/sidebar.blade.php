@@ -50,7 +50,7 @@
         </a>
       </li>
       <li  class="active" >
-        <a class="sidenav-item-link" href="index.html">
+        <a class="sidenav-item-link" href="{{ route('home.sobre') }}">
           <span class="nav-text">Sobre</span>
           
         </a>
