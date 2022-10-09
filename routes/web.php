@@ -77,6 +77,7 @@ Route::post('/salvar/slider',[HomeController::class,'SalvarSlider'])->name('salv
 // Sobre Paginas
 
 Route::get('/home/sobre',[SobreController::class,'HomeAbout'])->name('home.sobre');
+Route::get('/home/sobre/criar',[SobreController::class,'HomeAdd'])->name('add.sobre');
 
 
 
