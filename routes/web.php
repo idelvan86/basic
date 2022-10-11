@@ -39,7 +39,6 @@ Route::get('/sobre', function () {
 
 Route::get('/contato',[ContatoController::class,'index'])->name('con');
 
-
 //Categorias
 Route::get('/categorias/todas',[CategoriaController::class,'AllCat'])->name('all.categorias');
 
@@ -61,7 +60,6 @@ Route::get('/marcas/edit/{id}',[MarcaController::class,'EditMarca']);
 Route::post('/marcas/update/{id}',[MarcaController::class,'Update']);
 Route::get('/marcas/delete/{id}',[MarcaController::class,'Delete']);
 
-
 //imagens routes
 
 Route::get('/imagens/todas',[MarcaController::class,'Multimagem'])->name('multi.imagem');
@@ -73,13 +71,10 @@ Route::get('/home/slider',[HomeController::class,'HomeSlider'])->name('home.slid
 Route::get('/add/slider',[HomeController::class,'AddSlider'])->name('add.slider');
 Route::post('/salvar/slider',[HomeController::class,'SalvarSlider'])->name('salvar.slider');
 
-
 // Sobre Paginas
 
 Route::get('/home/sobre',[SobreController::class,'HomeAbout'])->name('home.sobre');
 Route::get('/home/sobre/criar',[SobreController::class,'HomeAdd'])->name('add.sobre');
-
-
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
