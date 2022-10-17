@@ -12,4 +12,14 @@ public function HomeAbout(){
     return view('admin.sobre.index', compact('homeabout'));
  }
 
+ public function HomeAdd(){
+    $homeabout = HomeSobre::latest()->get();
+    return view('admin.sobre.create', compact('homeabout'));
+ }
+
+ public function HomeSalvar(){
+   
+ }
+
+
 }
