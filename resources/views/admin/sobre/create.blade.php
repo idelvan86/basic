@@ -13,7 +13,7 @@
             @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Titulo Sobre</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="informe o titulo" required>
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="informe o titulo">
                     
                 </div>
                 
@@ -34,11 +34,6 @@
             </form>
         </div>
     </div>
-
-
-
-
-
 
 
 

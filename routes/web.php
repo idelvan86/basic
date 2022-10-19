@@ -75,7 +75,7 @@ Route::post('/salvar/slider',[HomeController::class,'SalvarSlider'])->name('salv
 
 Route::get('/home/sobre',[SobreController::class,'HomeAbout'])->name('home.sobre');
 Route::get('/home/sobre/criar',[SobreController::class,'HomeAdd'])->name('add.sobre');
-Route::get('/home/sobre/salvar',[SobreController::class,'HomeSalvar'])->name('salvar.sobre');
+Route::post('/home/sobre/salvar',[SobreController::class,'HomeSalvar'])->name('salvar.sobre');
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
