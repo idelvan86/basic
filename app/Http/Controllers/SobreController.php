@@ -41,7 +41,7 @@ public function HomeAbout(){
       'created_at'  => Carbon::now()
   ]);
 
-  return Redirect()->back()->with('success','Sobre inserida com sucesso!');
+  return Redirect()->route('home.sobre')->with('success','Sobre inserido com sucesso!');
 
 
 

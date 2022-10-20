@@ -28,7 +28,6 @@
                 <tr>
                     <th scope="col" width="5%">Nº Sobre</th>
                     <th scope="col" width="15%">Sobre Titulo</th>
-                    <!--<th scope="col">Caminho Imagem</th> -->
                     <th scope="col" width="25%">texto curto</th>
                     <th scope="col" width="15%">texto longo</th>
                     <th scope="col" width="15%">Action</th>
