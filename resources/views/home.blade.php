@@ -2,6 +2,13 @@
 
 @section('home_content')
 
+@php
+
+$homeabout = DB::table('home_sobres')->get();
+
+
+@endphp
+
 <!-- ======= About Us Section ======= -->
     <section id="about-us" class="about-us">
       <div class="container" data-aos="fade-up">
@@ -9,6 +16,7 @@
         <div class="section-title">
           <h2>About Us</strong></h2>
         </div>
+        @foreach($homeabout as $key => $h)
 
         <div class="row content">
           <div class="col-lg-6" data-aos="fade-right">
@@ -34,6 +42,8 @@
         </div>
 
       </div>
+
+      @endforeach
     </section><!-- End About Us Section -->
 
     <!-- ======= Services Section ======= -->
