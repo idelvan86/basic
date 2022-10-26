@@ -6,29 +6,29 @@
 <div class="col-lg-12">
     <div class="card card-default">
         <div class="card-header card-header-border-bottom">
-            <h2>Adicionar Sobre</h2>
+            <h2>Editar Sobre</h2>
         </div>
         <div class="card-body">
-        <form action="{{ route('salvar.sobre') }}" method="POST"> 
+        <form action="{{ url('sobre/update/'.$homeabout->id) }}" method="POST"> 
             @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Titulo Sobre</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="informe o titulo">
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $homeabout -> titulo}}">
                     
                 </div>
                 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Texto Curto</label>
-                    <textarea class="form-control" id="textarea" name="texto_curto" rows="2" placeholder="Texto curto sobre"></textarea>
+                    <textarea class="form-control" id="textarea" name="texto_curto" rows="2" >{{ $homeabout -> texto_curto}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Texto Longo</label>
-                    <textarea class="form-control" id="textarea" name="texto_longo" rows="4" placeholder="Texto completo sobre"></textarea>
+                    <textarea class="form-control" id="textarea" name="texto_longo" rows="4"> {{ $homeabout -> texto_longo}}</textarea>
                 </div>
                
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">
-                    <button type="submit" class="btn btn-primary btn-default">Update</button>
+                    <button type="submit" class="btn btn-primary btn-default">Submit</button>
                     <button type="submit" class="btn btn-secondary btn-default">Cancel</button>
                 </div>
             </form>
