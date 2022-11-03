@@ -47,15 +47,16 @@ public function HomeAbout(){
  }
 
 
- public function UpdateSobre($id){
+ public function HomeEdit($id){
 
     $homeabout = HomeSobre::find($id);
     return view('admin.sobre.edit',compact('homeabout'));
  }
 
 
- public function Update(Request $request,$id){
+ public function UpdateHome(Request $request,$id){
 
+    /*
     $validated = $request->validate([
         'marca_nome' => 'required|min:4',
         
@@ -64,16 +65,18 @@ public function HomeAbout(){
         'marca_nome.required' => 'Por favor informe a Marca!',
         'marca_imagem.min' => 'Poucos caracteres na Marca "menos de 4 caracteres"',
     ]);
+*/
 
         //Atualizar 
-        HomeSobre::find($id)->update([
+       $update = HomeSobre::find($id)->update([
+            //dd($request),
             'titulo'      =>  $request -> titulo,
             'texto_curto' =>  $request -> texto_curto,
             'texto_longo' =>  $request -> texto_longo,
             'updated_at'  =>  Carbon::now()
         ]);
 
-        return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+        return Redirect()->route('home.sobre')->with('success','Sobre Atualizada com sucesso!');
 
 
 }

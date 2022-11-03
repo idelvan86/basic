@@ -77,8 +77,8 @@ Route::get('/home/sobre',[SobreController::class,'HomeAbout'])->name('home.sobre
 Route::get('/home/sobre/criar',[SobreController::class,'HomeAdd'])->name('add.sobre');
 Route::post('/home/sobre/salvar',[SobreController::class,'HomeSalvar'])->name('salvar.sobre');
 
-Route::get('sobre/edit/{id}',[SobreController::class,'HomeEdit']);
-Route::post('/sobre/update/{id}',[MarcaController::class,'UpdateSobre']);
+Route::get('/sobre/edit/{id}',[SobreController::class,'HomeEdit']);
+Route::post('/sobre/update/{id}',[SobreController::class,'UpdateHome']);
 
 
 

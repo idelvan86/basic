@@ -10,7 +10,7 @@ class HomeSobre extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tttulo',
+        'titulo',
         'texto_curto',
         'texto_longo',
         
