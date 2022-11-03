@@ -79,7 +79,7 @@ Route::post('/home/sobre/salvar',[SobreController::class,'HomeSalvar'])->name('s
 
 Route::get('/sobre/edit/{id}',[SobreController::class,'HomeEdit']);
 Route::post('/sobre/update/{id}',[SobreController::class,'UpdateHome']);
-
+Route::get('/sobre/delete/{id}',[SobreController::class,'Delete']);
 
 
 //Parte administrativa do site

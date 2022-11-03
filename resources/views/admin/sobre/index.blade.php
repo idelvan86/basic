@@ -7,7 +7,7 @@
             <div class="row">
 
                 <h4>Home Sobre</h4>
-                <a href="{{ route('add.sobre') }}">  <button type="button" class="btn btn-info"> editar Sobre </button>  </a>
+                <a href="{{ route('add.sobre') }}">  <button type="button" class="btn btn-info"> Criar Sobre </button>  </a>
 <br><br>
 
                 <div class="col-md-12">

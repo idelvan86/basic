@@ -28,7 +28,7 @@
                 </div>
                
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">
-                    <button type="submit" class="btn btn-primary btn-default">Update</button>
+                    <button type="submit" class="btn btn-primary btn-default">Salvar</button>
                     <button type="submit" class="btn btn-secondary btn-default">Cancel</button>
                 </div>
             </form>

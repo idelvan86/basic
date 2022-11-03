@@ -82,4 +82,13 @@ public function HomeAbout(){
 }
 
 
+public function Delete($id){
+
+    $delete = HomeSobre::find($id)->delete();
+    return Redirect()->back()->with('success','Sobre Deletado com sucesso!');
+   
+}
+
+
+
 }
