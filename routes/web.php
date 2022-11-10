@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     $marcas = DB::table('marcas')->get();
-    return view('home', compact('marcas'));
+    $sobre  = DB::table('home_sobres')->first();
+    return view('home', compact('marcas','sobre'));
 });   
 
 Route::get('/sobre', function () {
