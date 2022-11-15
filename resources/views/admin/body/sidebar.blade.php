@@ -54,12 +54,22 @@
           <span class="nav-text">Sobre</span>
           
         </a>
-      </li>      <li  class="active" >
+      </li>   
+         <li  class="active" >
+        <a class="sidenav-item-link" href="{{ route('home.servico') }}">
+          <span class="nav-text">Serviços</span>
+          
+        </a>
+      </li> 
+      
+      <li  class="active" >
         <a class="sidenav-item-link" href="index.html">
           <span class="nav-text">Portifolio</span>
           
         </a>
-      </li>      <li  class="active" >
+      </li>
+           
+      <li  class="active" >
         <a class="sidenav-item-link" href="{{route('all.marca')}}">
           <span class="nav-text">marca</span>
           

@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SobreController;
+use App\Http\Controllers\ServicoController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -82,6 +83,11 @@ Route::get('/sobre/edit/{id}',[SobreController::class,'HomeEdit']);
 Route::post('/sobre/update/{id}',[SobreController::class,'UpdateHome']);
 Route::get('/sobre/delete/{id}',[SobreController::class,'Delete']);
 
+Route::get('/home/servico',[ServicoController::class,'HomeServico'])->name('home.servico');
+Route::get('/home/servico/criar',[ServicoController::class,'ServicoAdd'])->name('add.servico');
+Route::post('/home/servico/salvar',[ServicoController::class,'ServicoSalvar'])->name('salvar.servico');
+
+Route::get('/sobre/servico/{id}',[ServicoController::class,'ServicoEdit']);
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
