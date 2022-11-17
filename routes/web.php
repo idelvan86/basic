@@ -89,6 +89,8 @@ Route::post('/home/servico/salvar',[ServicoController::class,'ServicoSalvar'])->
 
 Route::get('/servico/edit/{id}',[ServicoController::class,'ServicoEdit']);
 Route::post('/servico/update/{id}',[ServicoController::class,'ServicoUpdate']);
+Route::get('/servico/delete/{id}',[ServicoController::class,'Delete']);
+
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){

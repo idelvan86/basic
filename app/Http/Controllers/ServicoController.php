@@ -78,5 +78,14 @@ class ServicoController extends Controller
     
     }
 
+    public function Delete($id){
+
+        $delete = Servico::find($id)->delete();
+        return Redirect()->back()->with('success','Serviço deletado com sucesso!');
+       
+    }
+
+
+
 
 }
