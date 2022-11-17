@@ -87,7 +87,8 @@ Route::get('/home/servico',[ServicoController::class,'HomeServico'])->name('home
 Route::get('/home/servico/criar',[ServicoController::class,'ServicoAdd'])->name('add.servico');
 Route::post('/home/servico/salvar',[ServicoController::class,'ServicoSalvar'])->name('salvar.servico');
 
-Route::get('/sobre/servico/{id}',[ServicoController::class,'ServicoEdit']);
+Route::get('/servico/edit/{id}',[ServicoController::class,'ServicoEdit']);
+Route::post('/servico/update/{id}',[ServicoController::class,'ServicoUpdate']);
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){

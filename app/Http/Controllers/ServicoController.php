@@ -50,4 +50,33 @@ class ServicoController extends Controller
          return view('admin.servico.edit',compact('servico'));
       }
 
+
+      public function ServicoUpdate(Request $request,$id){
+
+        /*
+        $validated = $request->validate([
+            'marca_nome' => 'required|min:4',
+            
+        ],
+        [
+            'marca_nome.required' => 'Por favor informe a Marca!',
+            'marca_imagem.min' => 'Poucos caracteres na Marca "menos de 4 caracteres"',
+        ]);
+    */
+    
+            //Atualizar 
+           $update = Servico::find($id)->update([
+                //dd($request),
+                'titulo'         => 0,
+                'card_icone'     => $request -> card_icone,
+                'card_titulo'    => $request -> card_titulo,
+                'card_descricao' => $request -> card_descricao,
+            ]);
+    
+            return Redirect()->route('home.servico')->with('success','Serviço Atualizado com sucesso!');
+    
+    
+    }
+
+
 }

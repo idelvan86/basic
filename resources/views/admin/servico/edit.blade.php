@@ -9,22 +9,23 @@
             <h2>Editar Sobre</h2>
         </div>
         <div class="card-body">
-        <form action="{{ url('sobre/update/'.$homeabout->id) }}" method="POST"> 
+        <form action="{{ url('servico/update/'.$servico->id) }}" method="POST"> 
             @csrf
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Titulo Sobre</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $homeabout -> titulo}}">
+                <label for="exampleFormControlInput1">Card Icone</label>
+                    <input type="text" class="form-control" id="titulo" name="card_icone" value="{{ $servico -> card_icone}}">
                     
                 </div>
                 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Texto Curto</label>
-                    <textarea class="form-control" id="textarea" name="texto_curto" rows="2" >{{ $homeabout -> texto_curto}}</textarea>
+                <label for="exampleFormControlInput1">Card Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="card_titulo" value="{{ $servico -> card_titulo}}">
+                    
                 </div>
-
+ 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Texto Longo</label>
-                    <textarea class="form-control" id="textarea" name="texto_longo" rows="4"> {{ $homeabout -> texto_longo}}</textarea>
+                    <textarea class="form-control" id="textarea" name="card_descricao" rows="4"> {{ $servico -> card_descricao }}</textarea>
                 </div>
                
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">

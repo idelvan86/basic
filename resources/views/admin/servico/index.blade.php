@@ -41,8 +41,8 @@
                     <td>{{ $s->card_titulo }}</td>
                     <td>{{ $s->card_descricao }}</td>
                     <td>
-                    <a href="{{ url('sobre/edit/'.$s->id)}}" class="btn btn-info"> editar</a>
-                    <a href="{{ url('sobre/delete/'.$s->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
+                    <a href="{{ url('servico/edit/'.$s->id)}}" class="btn btn-info"> editar</a>
+                    <a href="{{ url('servico/delete/'.$s->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
                     </td>
 
                 </tr>
