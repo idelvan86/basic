@@ -52,11 +52,50 @@
            
 
   </div>
+
+  
+  <div class="card card-default">
+        <div class="card-header card-header-border-bottom">
+            <h2>Editar titulo</h2>
+        </div>
+        <div class="card-body">
+        <form action="" method="POST"> 
+            @csrf
+                <div class="form-group">
+                <label for="exampleFormControlInput1">Card Icone</label>
+                    <input type="text" class="form-control" id="titulo" name="card_icone" value="">
+                    
+                </div>
+                
+                <div class="form-group">
+                <label for="exampleFormControlInput1">Card Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="card_titulo" value="">
+                    
+                </div>
+ 
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Texto Longo</label>
+                    <textarea class="form-control" id="textarea" name="card_descricao" rows="4"></textarea>
+                </div>
+               
+                <div class="form-footer pt-4 pt-5 mt-4 border-top">
+                    <button type="submit" class="btn btn-primary btn-default">Atualizar</button>
+                    <button type="submit" class="btn btn-secondary btn-default">Cancel</button>
+                </div>
+            </form>
+        </div>
 </div>
 
 
+
+
+
 </div>
 </div>
+
+
+
+
 
     </div>
 @endsection

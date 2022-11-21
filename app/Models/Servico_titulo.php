@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Servico extends Model
+class Servico_titulo extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'card_icone',
-        'card_titulo',
-        'card_descricao',
-        
+        'titulo',
+        'titulo_descricao',
+       
     ]; 
 
 

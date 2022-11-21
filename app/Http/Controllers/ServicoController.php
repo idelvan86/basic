@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Servico;
+use App\Models\Servico_titulo;
 
 class ServicoController extends Controller
 {
@@ -35,7 +36,6 @@ class ServicoController extends Controller
      
        //Salvar 
        Servico::insert([
-           'titulo'         => 0,
            'card_icone'     => $request -> card_icone,
            'card_titulo'    => $request -> card_titulo,
            'card_descricao' => $request -> card_descricao,
@@ -44,6 +44,32 @@ class ServicoController extends Controller
      
        return Redirect()->route('home.servico')->with('success','Servico inserido com sucesso!');
       }
+
+      public function Servico_tituloSalvar(Request $request){
+
+        $validated = $request->validate([
+           'titulo' => 'required',
+           'titulo_descricao' => 'required',
+       ],
+       [
+           'titulo.required'  => 'Por favor informe o Titulo do Card',
+           'titulo_descricao.required'  => 'Por favor informe a descrição do Card !',
+       ]);
+       //---------------------------------------------------------------------------------------------
+     
+       //Salvar 
+       Servico::insert([
+           'titulo'    => $request -> card_titulo,
+           'titulo_descricao' => $request -> card_descricao,
+           'created_at'  => Carbon::now()
+       ]);
+     
+       return Redirect()->route('home.servico')->with('success','Servico inserido com sucesso!');
+      }
+
+
+
+
      
       public function ServicoEdit($id){
          $servico = Servico::find($id);
