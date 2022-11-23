@@ -88,6 +88,7 @@ Route::get('/home/servico/criar',[ServicoController::class,'ServicoAdd'])->name(
 Route::post('/home/servico/salvar',[ServicoController::class,'ServicoSalvar'])->name('salvar.servico');
 
 Route::get('/servico/edit/{id}',[ServicoController::class,'ServicoEdit']);
+Route::post('/titulo/update/{id}',[ServicoController::class,'TituloUpdate']);
 Route::post('/servico/update/{id}',[ServicoController::class,'ServicoUpdate']);
 Route::get('/servico/delete/{id}',[ServicoController::class,'Delete']);
 

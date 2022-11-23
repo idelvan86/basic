@@ -59,23 +59,19 @@
             <h2>Editar titulo</h2>
         </div>
         <div class="card-body">
-        <form action="" method="POST"> 
+        <form action="{{  url('titulo/update/'.$titulo->id) }}" method="POST"> 
             @csrf
                 <div class="form-group">
-                <label for="exampleFormControlInput1">Card Icone</label>
-                    <input type="text" class="form-control" id="titulo" name="card_icone" value="">
+                <label for="exampleFormControlInput1">Titulo Serviço</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $titulo -> titulo}}">
                     
                 </div>
                 
                 <div class="form-group">
-                <label for="exampleFormControlInput1">Card Titulo</label>
-                    <input type="text" class="form-control" id="titulo" name="card_titulo" value="">
-                    
-                </div>
- 
+               
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Texto Longo</label>
-                    <textarea class="form-control" id="textarea" name="card_descricao" rows="4"></textarea>
+                    <label for="exampleFormControlTextarea1">Descrição Serviço</label>
+                    <textarea class="form-control" id="textarea" name="titulo_descricao" rows="4">{{ $titulo -> titulo_descricao }}</textarea>
                 </div>
                
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">

@@ -12,7 +12,8 @@ class ServicoController extends Controller
  
     public function HomeServico(){
         $servico = Servico::latest()->get();
-        return view('admin.servico.index', compact('servico'));
+        $titulo = Servico_titulo::find(1);
+        return view('admin.servico.index', compact('servico','titulo'));
     }
 
     public function ServicoAdd(){
@@ -100,9 +101,35 @@ class ServicoController extends Controller
             ]);
     
             return Redirect()->route('home.servico')->with('success','Serviço Atualizado com sucesso!');
-    
-    
+           
     }
+
+     public function TituloUpdate(Request $request,$id){
+
+       /*
+       $validated = $request->validate([
+           'marca_nome' => 'required|min:4',
+           
+       ],
+       [
+           'marca_nome.required' => 'Por favor informe a Marca!',
+           'marca_imagem.min' => 'Poucos caracteres na Marca "menos de 4 caracteres"',
+       ]);
+   */
+   
+           //Atualizar 
+          $update = Servico::find($id)->update([
+               //dd($request),
+               'titulo'         => $request -> titulo,
+               'titulo_descricao'    => $request -> titulo_descricao,
+           ]);
+   
+           return Redirect()->route('home.servico')->with('success','Titulo Atualizado com sucesso!');
+          
+   }
+
+
+
 
     public function Delete($id){
 
