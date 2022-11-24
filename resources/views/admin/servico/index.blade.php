@@ -56,7 +56,7 @@
   
   <div class="card card-default">
         <div class="card-header card-header-border-bottom">
-            <h2>Editar titulo</h2>
+            <h2>Editar titulo Serviços</h2>
         </div>
         <div class="card-body">
         <form action="{{  url('titulo/update/'.$titulo->id) }}" method="POST"> 

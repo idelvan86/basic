@@ -118,7 +118,7 @@ class ServicoController extends Controller
    */
    
            //Atualizar 
-          $update = Servico::find($id)->update([
+          $update = Servico_titulo::find($id)->update([
                //dd($request),
                'titulo'         => $request -> titulo,
                'titulo_descricao'    => $request -> titulo_descricao,

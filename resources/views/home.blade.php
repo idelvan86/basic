@@ -6,6 +6,9 @@
 
 $homeabout = DB::table('home_sobres')->get();
 $servicos = DB::table('servicos')->get();
+$servico_titulo = DB::table('servico_titulo')->get();
+
+//dd($servico_titulo);
 
 @endphp
 
@@ -36,14 +39,15 @@ $servicos = DB::table('servicos')->get();
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
-
+      @foreach($servico_titulo as $st)
         <div class="section-title">
-          <h2>Services</strong></h2>
-          <p>Laborum repudiandae omnis voluptatum consequatur mollitia ea est voluptas ut</p>
+          <h2>{{ $st->titulo }}</strong></h2>
+          <p>{{ $st->titulo_descricao }}</p>
         </div>
 
         <div class="row">
-       
+        @endforeach
+
         @foreach($servicos as $s)
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box iconbox-blue">
