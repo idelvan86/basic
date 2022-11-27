@@ -7,6 +7,7 @@ use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\PortfolioController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -83,6 +84,8 @@ Route::get('/sobre/edit/{id}',[SobreController::class,'HomeEdit']);
 Route::post('/sobre/update/{id}',[SobreController::class,'UpdateHome']);
 Route::get('/sobre/delete/{id}',[SobreController::class,'Delete']);
 
+// Serviço Paginas
+
 Route::get('/home/servico',[ServicoController::class,'HomeServico'])->name('home.servico');
 Route::get('/home/servico/criar',[ServicoController::class,'ServicoAdd'])->name('add.servico');
 Route::post('/home/servico/salvar',[ServicoController::class,'ServicoSalvar'])->name('salvar.servico');
@@ -92,6 +95,9 @@ Route::post('/titulo/update/{id}',[ServicoController::class,'TituloUpdate']);
 Route::post('/servico/update/{id}',[ServicoController::class,'ServicoUpdate']);
 Route::get('/servico/delete/{id}',[ServicoController::class,'Delete']);
 
+// Portfolio Paginas
+
+Route::get('/home/portfolio',[PortfolioController::class,'HomePortfolio'])->name('home.portfolio');
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){

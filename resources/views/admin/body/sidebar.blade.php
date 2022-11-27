@@ -63,7 +63,7 @@
       </li> 
       
       <li  class="active" >
-        <a class="sidenav-item-link" href="index.html">
+        <a class="sidenav-item-link" href="{{ route('home.portfolio') }}">
           <span class="nav-text">Portifolio</span>
           
         </a>
