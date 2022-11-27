@@ -98,6 +98,8 @@ Route::get('/servico/delete/{id}',[ServicoController::class,'Delete']);
 // Portfolio Paginas
 
 Route::get('/home/portfolio',[PortfolioController::class,'HomePortfolio'])->name('home.portfolio');
+Route::get('/home/portfolio/criar',[PortfolioController::class,'PortfolioAdd'])->name('add.portfolio');
+Route::post('/home/portfolio/salvar',[PortfolioController::class,'PortfolioSalvar'])->name('salvar.portfolio');
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
