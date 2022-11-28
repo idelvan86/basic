@@ -42,8 +42,8 @@
                     <th scope="row">{{$i++ }} </th>
                     <td>{{ $p->titulo }}</td>
                     <td>{{ $p->texto }}</td>
-                    <td><img src="{{ asset($s->imagem) }} " style="height:40px; width:70px;"> </td>
-                    <td>{{ $p->link }}</td>
+                    <td><img src="{{ asset($p->imagem) }} " style="height:40px; width:70px;"> </td>
+                    <td><a href="{{ $p->link }}" target="_blank">{{ $p->titulo }}</a></td>
                     <td>
                     <a href="{{ url('portfolio/edit/'.$p->id)}}" class="btn btn-info"> editar</a>
                     <a href="{{ url('portfolio/delete/'.$p->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>

@@ -25,10 +25,10 @@ class PortfolioController extends Controller
             'titulo' => 'required',
             'texto'  => 'required',
             'link'   => 'required',
-            'marca_imagem' => 'required|mimes:jpg,jpeg,png',
+            'imagem' => 'required|mimes:jpg,jpeg,png',
         ],
         [
-            'marca_nome.required' => 'Por favor informe a Marca!',
+            'titulo.required' => 'Por favor informe o Titulo!',
         ]);
 
         //---------------------------------------------------------------------------------------------
@@ -48,10 +48,11 @@ class PortfolioController extends Controller
         $portfolio_imagem = $request->file('imagem');
 
         $gera_nome = hexdec(uniqid()).'.'.$portfolio_imagem->getClientOriginalExtension();
-        Image::make($portfolio_imagem)->resize(100,100)->save('image/portfolio/'.$gera_nome);
+        Image::make($portfolio_imagem)->resize(200,500)->save('image/portfolio/'.$gera_nome);
         $salvar_imagem = 'image/portfolio/'.$gera_nome;
 
         //---------------------------------------------------------------------------------------------
+        //dd($salvar_imagem);
 
         //Salvar 
         Portifolio::insert([
@@ -62,7 +63,7 @@ class PortfolioController extends Controller
             'created_at'    => Carbon::now()
         ]);
    
-        return Redirect()->back('home.portfolio')->with('success','Portfolio criado com sucesso!');
+        return redirect()->route('home.portfolio')->with('success','Portfolio criado com sucesso!');
 
     }    
 
