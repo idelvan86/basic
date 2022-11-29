@@ -48,7 +48,7 @@ class PortfolioController extends Controller
         $portfolio_imagem = $request->file('imagem');
 
         $gera_nome = hexdec(uniqid()).'.'.$portfolio_imagem->getClientOriginalExtension();
-        Image::make($portfolio_imagem)->resize(200,500)->save('image/portfolio/'.$gera_nome);
+        Image::make($portfolio_imagem)->resize(600,600)->save('image/portfolio/'.$gera_nome);
         $salvar_imagem = 'image/portfolio/'.$gera_nome;
 
         //---------------------------------------------------------------------------------------------
@@ -67,6 +67,10 @@ class PortfolioController extends Controller
 
     }    
 
+    public function Portfolio(){
+        $portfolio = Portifolio::all();
+        return view('layouts.paginas.portfolio', compact('portfolio'));
+     }
 
 
 

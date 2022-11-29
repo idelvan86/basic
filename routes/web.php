@@ -9,6 +9,7 @@ use App\Http\Controllers\SobreController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\PortfolioController;
 use App\Models\User;
+use App\Models\Portifolio;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     $marcas = DB::table('marcas')->get();
     $sobre  = DB::table('home_sobres')->first();
-    return view('home', compact('marcas','sobre'));
+    $portfolio = Portifolio::all();
+    return view('home', compact('marcas','sobre','portfolio'));
 });   
 
 Route::get('/sobre', function () {
@@ -95,11 +97,19 @@ Route::post('/titulo/update/{id}',[ServicoController::class,'TituloUpdate']);
 Route::post('/servico/update/{id}',[ServicoController::class,'ServicoUpdate']);
 Route::get('/servico/delete/{id}',[ServicoController::class,'Delete']);
 
-// Portfolio Paginas
+// Portfolio Paginas - Amnistrativas
 
 Route::get('/home/portfolio',[PortfolioController::class,'HomePortfolio'])->name('home.portfolio');
 Route::get('/home/portfolio/criar',[PortfolioController::class,'PortfolioAdd'])->name('add.portfolio');
 Route::post('/home/portfolio/salvar',[PortfolioController::class,'PortfolioSalvar'])->name('salvar.portfolio');
+
+// Portfolio Paginas - Site
+
+Route::get('/portfolio',[PortfolioController::class,'Portfolio'])->name('portfolio');
+
+
+
+
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
