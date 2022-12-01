@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
-    public function index(){
-     //echo "Chupa nada";
-     return view('contato');
+    public function HomeContato(){
+     
+        //$sliders = Slider::latest()->get();
+        return view('admin.contato.index');
 
     }
 }

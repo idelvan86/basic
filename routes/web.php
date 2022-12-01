@@ -107,8 +107,8 @@ Route::post('/home/portfolio/salvar',[PortfolioController::class,'PortfolioSalva
 
 Route::get('/portfolio',[PortfolioController::class,'Portfolio'])->name('portfolio');
 
-
-
+// Contato Paginas - Amnistrativas
+Route::get('/home/contato',[ContatoController::class,'HomeContato'])->name('home.contato');
 
 
 //Parte administrativa do site
