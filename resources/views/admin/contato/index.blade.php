@@ -7,7 +7,7 @@
             <div class="row">
 
                 <h4>Contato Pagina</h4>
-              <!--   <a href="{{ route('add.sobre') }}">  <button type="button" class="btn btn-info"> Criar Sobre </button>  </a> -->
+                <a href="{{ route('add.contato') }}">  <button type="button" class="btn btn-info"> Criar Contato </button>  </a>
 <br><br>
 
                 <div class="col-md-12">
@@ -42,8 +42,8 @@
                     <td>{{ $c->email }}</td>
                     <td>{{ $c->telefone }}</td>
                     <td>
-                    <a href="{{ url('sobre/edit/'.$c->id)}}" class="btn btn-info"> editar</a>
-                    <a href="{{ url('sobre/delete/'.$c->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
+                    <a href="{{ url('contato/edit/'.$c->id)}}" class="btn btn-info"> editar</a>
+                    <a href="{{ url('contato/delete/'.$c->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
                     </td>
 
                 </tr>

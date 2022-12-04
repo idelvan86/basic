@@ -10,4 +10,11 @@ class ContatoController extends Controller
         $contato = contato::All();
         return view('admin.contato.index', compact('contato'));
     }
+
+    public function ContatoAdd(){
+        $contato = contato::latest()->get();
+        return view('admin.contato.create', compact('contato'));
+     }
+
+    
 }

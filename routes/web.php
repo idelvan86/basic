@@ -109,7 +109,7 @@ Route::get('/portfolio',[PortfolioController::class,'Portfolio'])->name('portfol
 
 // Contato Paginas - Amnistrativas
 Route::get('/home/contato',[ContatoController::class,'HomeContato'])->name('home.contato');
-
+Route::get('/home/contato/criar',[ContatoController::class,'ContatoAdd'])->name('add.contato');
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
