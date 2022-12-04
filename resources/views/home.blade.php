@@ -1,15 +1,12 @@
 @extends('layouts.master_home')
 @include('layouts.body.slider')
-
 @section('home_content')
 
 @php
-
 $homeabout = DB::table('home_sobres')->get();
 $servicos = DB::table('servicos')->get();
 $servico_titulo = DB::table('servico_titulo')->get();
 
-//dd($portfolio);
 
 @endphp
 

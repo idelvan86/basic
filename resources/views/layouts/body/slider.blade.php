@@ -1,13 +1,6 @@
 @php
-
 $slide = DB::table('sliders')->get();
-
-
 @endphp
-
-
-
-
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
