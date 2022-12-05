@@ -30,7 +30,7 @@ class ContatoController extends Controller
    
         //dd($request);
 
-        $validated = $request->validate([
+        /*$validated = $request->validate([
            'endereco' => 'required',
            'email' => 'required',
            'telefone' => 'required',
@@ -40,7 +40,8 @@ class ContatoController extends Controller
            'email.required' => 'Por favor informe o e-mail!',
            'telefone.required' => 'Por favor informe o telefone!',
            
-       ]);
+       ]); 
+       */
        //---------------------------------------------------------------------------------------------
      
        //Salvar 
@@ -54,5 +55,10 @@ class ContatoController extends Controller
        return Redirect()->route('home.contato')->with('success','Contato inserido com sucesso!');
       }
 
-    
+      public function ContatoEdit($id){
+
+        $contato = contato::find($id);
+        return view('admin.contato.edit',compact('contato'));
+     }
+     
 }

@@ -112,6 +112,10 @@ Route::get('/home/contato',[ContatoController::class,'HomeContato'])->name('home
 Route::get('/home/contato/criar',[ContatoController::class,'ContatoAdd'])->name('add.contato');
 Route::post('/home/contato/salvar',[ContatoController::class,'ContatoSalvar'])->name('salvar.contato');
 
+Route::get('/contato/edit/{id}',[ContatoController::class,'ContatoEdit']);
+Route::post('/contato/update/{id}',[ContatoController::class,'ContatoUpdate']);
+
+
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
 //$users = User::all();
