@@ -38,7 +38,7 @@
                @foreach($contato as $c)
                 <tr>
                     <th scope="row">{{$i++ }} </th>
-                    <td>{{ $c->endereço }}</td>
+                    <td>{{ $c->endereco }}</td>
                     <td>{{ $c->email }}</td>
                     <td>{{ $c->telefone }}</td>
                     <td>

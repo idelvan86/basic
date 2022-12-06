@@ -30,21 +30,6 @@ class ContatoController extends Controller
    
         //dd($request);
 
-        /*$validated = $request->validate([
-           'endereco' => 'required',
-           'email' => 'required',
-           'telefone' => 'required',
-       ],
-       [
-           'endereco.required' => 'Por favor informe o endereço!',
-           'email.required' => 'Por favor informe o e-mail!',
-           'telefone.required' => 'Por favor informe o telefone!',
-           
-       ]); 
-       */
-       //---------------------------------------------------------------------------------------------
-     
-       //Salvar 
        contato::insert([
            'endereco'   => $request -> endereco,
            'email'      => $request -> email,
@@ -60,5 +45,29 @@ class ContatoController extends Controller
         $contato = contato::find($id);
         return view('admin.contato.edit',compact('contato'));
      }
+
+     public function ContatoUpdate(Request $request,$id){
+    
+            //Atualizar 
+           $update = contato::find($id)->update([
+                //dd($request),
+                'endereco'   => $request -> endereco,
+                'email'      => $request -> email,
+                'telefone'   => $request -> telefone,
+                'updated_at' => Carbon::now()
+            ]);
+    
+            return Redirect()->route('home.contato')->with('success','Contato Atualizado com sucesso!');
+           
+    }
+
+    public function Delete($id){
+
+        $delete = contato::find($id)->delete();
+        return Redirect()->back()->with('success','Contato deletado com sucesso!');
+       
+    }
+
+
      
 }

@@ -9,7 +9,7 @@
             <h2>Editar Contato</h2>
         </div>
         <div class="card-body">
-        <form action="{{ url('sobre/update/'.$contato->id) }}" method="POST"> 
+        <form action="{{ url('contato/update/'.$contato->id) }}" method="POST"> 
             @csrf
             <div class="form-group">
                     <label for="exampleFormControlInput1">Contato Endereço</label>

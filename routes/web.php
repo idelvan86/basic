@@ -115,6 +115,7 @@ Route::post('/home/contato/salvar',[ContatoController::class,'ContatoSalvar'])->
 Route::get('/contato/edit/{id}',[ContatoController::class,'ContatoEdit']);
 Route::post('/contato/update/{id}',[ContatoController::class,'ContatoUpdate']);
 
+Route::get('/contato/delete/{id}',[ContatoController::class,'Delete']);
 
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
