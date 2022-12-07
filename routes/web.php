@@ -117,6 +117,11 @@ Route::post('/contato/update/{id}',[ContatoController::class,'ContatoUpdate']);
 
 Route::get('/contato/delete/{id}',[ContatoController::class,'Delete']);
 
+// Contato Paginas - Site
+
+Route::get('/contato',[ContatoController::class,'contato'])->name('contato');
+
+
 //Parte administrativa do site
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function(){
 //$users = User::all();

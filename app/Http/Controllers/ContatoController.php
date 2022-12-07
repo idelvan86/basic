@@ -5,6 +5,8 @@ use App\Models\contato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 
 class ContatoController extends Controller
 {
@@ -67,6 +69,11 @@ class ContatoController extends Controller
         return Redirect()->back()->with('success','Contato deletado com sucesso!');
        
     }
+
+    public function Contato(){
+        $contato = DB::table('contatos')->first();
+        return view('layouts.paginas.contato', compact('contato'));
+     }
 
 
      
