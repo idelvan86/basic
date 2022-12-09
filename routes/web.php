@@ -119,7 +119,12 @@ Route::get('/contato/delete/{id}',[ContatoController::class,'Delete']);
 
 // Contato Paginas - Site
 
-Route::get('/contato',[ContatoController::class,'contato'])->name('contato');
+Route::get('/contato',[ContatoController::class,'Contato'])->name('contato');
+Route::post('/contato/form/',[ContatoController::class,'ContatoForm'])->name('contato.form');
+
+// Contato Mensagem Paginas - Amnistrativas
+Route::get('/home/contato/mensagem',[ContatoController::class,'HomeContatoMensagem'])->name('home.contatomensagem');
+
 
 
 //Parte administrativa do site

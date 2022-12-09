@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\contato;
+use App\Models\ContatoForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
@@ -75,6 +76,26 @@ class ContatoController extends Controller
         return view('layouts.paginas.contato', compact('contato'));
      }
 
+     public function ContatoForm(Request $request){
+        
+    //dd($request);
+
+    ContatoForm::insert([
+        'nome'       => $request -> nome,
+        'email'      => $request -> email,
+        'titulo'     => $request -> titulo,
+        'mensagem'   => $request -> mensagem,
+        'created_at' => Carbon::now()
+    ]);
+
+    return Redirect()->route('contato')->with('success','Mensagem enviada  com sucesso!');
+     }
 
      
+     public function HomeContatoMensagem(){
+        $contato = ContatoForm::All();
+        return view('admin.contatomensagem.index', compact('contato'));
+    }
+
+
 }
