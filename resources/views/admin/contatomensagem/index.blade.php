@@ -44,8 +44,7 @@
                     <td>{{ $c->titulo }}</td>
                     <td>{{ $c->mensagem }}</td>
                     <td>
-                    <a href="{{ url('contato/edit/'.$c->id)}}" class="btn btn-info"> editar</a>
-                    <a href="{{ url('contato/delete/'.$c->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
+                    <a href="{{ url('contato/form/delete/'.$c->id)}}" onclick="return confirm('Tem certeza que quer deletar ?')" class="btn btn-danger"> apagar</a>
                     </td>
 
                 </tr>

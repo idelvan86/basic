@@ -97,5 +97,12 @@ class ContatoController extends Controller
         return view('admin.contatomensagem.index', compact('contato'));
     }
 
+    public function DeleteContatoForm($id){
+
+        $delete = ContatoForm::find($id)->delete();
+        return Redirect()->back()->with('success','Mensagem contato deletado com sucesso!');
+       
+    }
+
 
 }
