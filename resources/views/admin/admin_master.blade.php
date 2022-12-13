@@ -134,6 +134,8 @@
                       </li>
                     </ul>
                   </li>
+
+
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -151,23 +153,23 @@
 
                       <li>
                         <a href="profile.html">
-                          <i class="mdi mdi-account"></i> My Profile
+                          <i class="mdi mdi-account"></i> Meu Perefil
                         </a>
                       </li>
                       <li>
                         <a href="email-inbox.html">
-                          <i class="mdi mdi-email"></i> Message
+                          <i class="mdi mdi-email"></i> Mensagem
                         </a>
                       </li>
                       <li>
-                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
+                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projetos </a>
                       </li>
                       <li>
-                        <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                        <a href="#"> <i class="mdi mdi-settings"></i> Configurar conta </a>
                       </li>
 
                       <li class="dropdown-footer">
-                        <a href="{{ route('user.logout')}}"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a href="{{ route('user.logout')}}"> <i class="mdi mdi-logout"></i> Sair </a>
                       </li>
                     </ul>
                   </li>
