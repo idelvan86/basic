@@ -157,8 +157,8 @@
                         </a>
                       </li>
                       <li>
-                        <a href="email-inbox.html">
-                          <i class="mdi mdi-email"></i> Mensagem
+                        <a href="{{ route('mudar.senha')}}">
+                          <i class="mdi mdi-email"></i> Trocar senha
                         </a>
                       </li>
                       <li>

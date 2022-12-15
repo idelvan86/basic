@@ -7,6 +7,7 @@ use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\TrocarSenhaController;
 use App\Http\Controllers\PortfolioController;
 use App\Models\User;
 use App\Models\Portifolio;
@@ -140,3 +141,6 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice'); 
 
 Route::get('/user/logout',[MarcaController::class,'Logout'])->name('user.logout');
+
+///roa trocar senha
+Route::get('/usuario/senha',[TrocarSenhaController::class,'TrocarSenha'])->name('mudar.senha');
