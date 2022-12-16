@@ -9,7 +9,8 @@ class TrocarSenhaController extends Controller
     
     public function TrocarSenha(){
         //$homeabout = HomeSobre::latest()->get();
-        return view('admin.sobre.index', compact('homeabout'));
+        $homeabout = 1;
+        return view('admin.mudarsenha.index', compact('homeabout'));
      }
     
 
