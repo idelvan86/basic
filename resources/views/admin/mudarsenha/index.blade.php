@@ -12,17 +12,17 @@
             <form class="form-pill">
                 <div class="form-group">
                     <label for="exampleFormControlInput3">Senha atual</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput3" placeholder="Senha atual">
+                    <input type="password" class="form-control" id="current_password" placeholder="Senha atual">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlPassword3">Nova senha</label>
-                    <input type="password" class="form-control" id="exampleFormControlPassword3" placeholder="senha">
+                    <input type="password" class="form-control" id="password" placeholder="senha">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlPassword3">Confirmar nova senha</label>
-                    <input type="password" class="form-control" id="exampleFormControlPassword3" placeholder="repita a senha">
+                    <input type="password" class="form-control" id="password_confirmation" placeholder="repita a senha">
                 </div>
 
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">
