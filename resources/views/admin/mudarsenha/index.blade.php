@@ -9,20 +9,33 @@
         </div>
         <div class="card-body">
 
-            <form class="form-pill">
+            <form method="post" action="{{ route('senha.atualizar') }}" class="form-pill">
+               @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput3">Senha atual</label>
-                    <input type="password" class="form-control" id="current_password" placeholder="Senha atual">
+                    <input type="password" name="senhaantiga" class="form-control" id="current_password" placeholder="Senha atual">
+            
+                    @error('oldpassword')
+                    <span class="text-danger"> {{ $message }} </span> 
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlPassword3">Nova senha</label>
-                    <input type="password" class="form-control" id="password" placeholder="senha">
+                    <input type="password" name="senha" class="form-control" id="password" placeholder="senha">
+            
+                    @error('password')
+                    <span class="text-danger"> {{ $message }} </span> 
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlPassword3">Confirmar nova senha</label>
-                    <input type="password" class="form-control" id="password_confirmation" placeholder="repita a senha">
+                    <input type="password" name="senhaconfirmacao" class="form-control" id="password_confirmation" placeholder="repita a senha">
+            
+                    @error('password_confirmation')
+                    <span class="text-danger"> {{ $message }} </span> 
+                    @enderror
                 </div>
 
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">

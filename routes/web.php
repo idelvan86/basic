@@ -144,3 +144,4 @@ Route::get('/user/logout',[MarcaController::class,'Logout'])->name('user.logout'
 
 ///roa trocar senha
 Route::get('/usuario/senha',[TrocarSenhaController::class,'TrocarSenha'])->name('mudar.senha');
+Route::post ('/usuario/update/senha',[TrocarSenhaController::class,'UpdateSenha'])->name('senha.atualizar');
