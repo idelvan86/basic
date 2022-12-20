@@ -13,7 +13,7 @@
                @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput3">Senha atual</label>
-                    <input type="password" name="senhaantiga" class="form-control" id="current_password" placeholder="Senha atual">
+                    <input type="password" name="senhaantiga" class="form-control" id="current_password" placeholder="Senha atual" required>
             
                     @error('oldpassword')
                     <span class="text-danger"> {{ $message }} </span> 

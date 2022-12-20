@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 
 class TrocarSenhaController extends Controller
@@ -16,28 +18,24 @@ class TrocarSenhaController extends Controller
      }
     
 
-     public function UpdateSenha(Request $request,$id){
+     public function UpdateSenha(Request $request){
 
-        
-        $validated = $request->validate([
-            'marca_nome' => 'required|min:4',
+        $hashedPassword = Auth::user()->password;
+       
+        if(Hash::check($request->senhaantiga,$hashedPassword)){
+            $user = User::find(Auth::id(7));
+            $user->password = Hash::make($request->password);
+            $user->save();
+            Auth::Logout();
             
-        ],
-        [
-            'marca_nome.required' => 'Por favor informe a Marca!',
-            'marca_imagem.min' => 'Poucos caracteres na Marca "menos de 4 caracteres"',
-        ]);
+            return redirect()->route('login')->with('success', 'Senha alterada com sucesso');
         
-            //Atualizar 
-           $update = User::find($id)->update([
-                //dd($request),
-                'password'      =>  $request -> password,
-                
-                'updated_at'  =>  Carbon::now()
-            ]);
-    
-            return Redirect()->route('home.sobre')->with('success','Sobre Atualizada com sucesso!');
-    
+        }else{
+
+            return redirect()->back()->with('success', 'Senha atual invalida!');
+
+        }
+
     
     }
 
