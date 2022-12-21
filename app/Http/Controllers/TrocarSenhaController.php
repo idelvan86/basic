@@ -12,17 +12,16 @@ class TrocarSenhaController extends Controller
 {
     
     public function TrocarSenha(){
-        //$homeabout = HomeSobre::latest()->get();
-        $homeabout = 1;
-        return view('admin.mudarsenha.index', compact('homeabout'));
+        
+        return view('admin.mudarsenha.index');
      }
     
 
      public function UpdateSenha(Request $request){
 
         $validated = $request->validate([
-            
-            
+            'senhaantiga' => 'required',
+            'senha' => 'required|confirmed',
         ]);
 
         $hashedPassword = Auth::user()->password;
@@ -46,4 +45,3 @@ class TrocarSenhaController extends Controller
 
 
 }
-derf

@@ -14,7 +14,6 @@ class categoriaController extends Controller
 
         $this->middleware('auth');
         
-
     }
 
 
