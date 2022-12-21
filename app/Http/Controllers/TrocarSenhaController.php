@@ -20,13 +20,18 @@ class TrocarSenhaController extends Controller
 
      public function UpdateSenha(Request $request){
 
+        $validated = $request->validate([
+            
+            
+        ]);
+
         $hashedPassword = Auth::user()->password;
        
         if(Hash::check($request->senhaantiga,$hashedPassword)){
-            $user = User::find(Auth::id(7));
-            $user->password = Hash::make($request->password);
+            $user = User::find(Auth::id());
+            $user->password = Hash::make($request->senha);
             $user->save();
-            Auth::Logout();
+            Auth::logout();
             
             return redirect()->route('login')->with('success', 'Senha alterada com sucesso');
         
@@ -41,3 +46,4 @@ class TrocarSenhaController extends Controller
 
 
 }
+derf
