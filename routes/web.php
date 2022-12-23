@@ -142,6 +142,9 @@ Route::get('/email/verify', function () {
 
 Route::get('/user/logout',[MarcaController::class,'Logout'])->name('user.logout');
 
-///roa trocar senha
+/// trocar senha
 Route::get('/usuario/senha',[TrocarSenhaController::class,'TrocarSenha'])->name('mudar.senha');
 Route::post ('/usuario/update/senha',[TrocarSenhaController::class,'UpdateSenha'])->name('senha.atualizar');
+
+///Perfil Usuário
+Route::get('/usuario/perfil',[TrocarSenhaController::class,'PerfilUpdate'])->name('profile.update');

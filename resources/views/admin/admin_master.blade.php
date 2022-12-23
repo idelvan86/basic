@@ -152,8 +152,8 @@
                       </li>
 
                       <li>
-                        <a href="profile.html">
-                          <i class="mdi mdi-account"></i> Meu Perefil
+                        <a href="{{ route('profile.update')}}">
+                          <i class="mdi mdi-account"></i> Meu Perfil
                         </a>
                       </li>
                       <li>

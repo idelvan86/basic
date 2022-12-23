@@ -43,5 +43,28 @@ class TrocarSenhaController extends Controller
     
     }
 
+    public function PerfilUpdate(){
+
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            if($user){
+                return view('admin.atualizar_perfil.index',compact('user'));    
+             }
+        }
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 
 }
