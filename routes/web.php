@@ -148,3 +148,6 @@ Route::post ('/usuario/update/senha',[TrocarSenhaController::class,'UpdateSenha'
 
 ///Perfil Usuário
 Route::get('/usuario/perfil',[TrocarSenhaController::class,'PerfilUpdate'])->name('profile.update');
+Route::post ('/usuario/update/perfil',[TrocarSenhaController::class,'UpdateUsuario'])->name('profile.atualizar');
+
+

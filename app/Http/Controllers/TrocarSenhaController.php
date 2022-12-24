@@ -54,17 +54,24 @@ class TrocarSenhaController extends Controller
      }
 
 
+     public function UpdateUsuario(Request $request){
 
+            $user = User::find(Auth::user()->id);
+            if($user){
 
+                $user->name  = $request['nome'];
+                $user->email = $request['email'];
 
+                $user->save();
 
+                return redirect()->back()->with('success', 'Perfil de Usuario altualizado com sucesso');
 
+            }else{
 
+                return redirect()->back();
 
-
-
-
-    
-
+            }
+                
+    }
 
 }
