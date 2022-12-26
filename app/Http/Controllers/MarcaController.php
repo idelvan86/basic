@@ -61,7 +61,12 @@ class MarcaController extends Controller
             'created_at'    => Carbon::now()
         ]);
    
-        return Redirect()->back()->with('success','Marca inserida com sucesso!');
+    $notificacao = array(
+        'message'    => 'Marca inserida com sucesso!',
+        'alert-type' => 'success'
+    );
+
+    return Redirect()->back()->with($notificacao);
 
     }
 
