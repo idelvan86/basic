@@ -112,7 +112,12 @@ class MarcaController extends Controller
                 'updated_at'    => Carbon::now()
             ]);
 
-            return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+            $notificacao = array(
+                'message'    => 'Marca Atualizada com sucesso!',
+                'alert-type' => 'info'
+            );
+
+            return Redirect()->back()->with($notificacao);
 
         }
 
@@ -123,7 +128,12 @@ class MarcaController extends Controller
                 'updated_at'    => Carbon::now()
             ]);
 
-          return Redirect()->back()->with('success','Marca Atualizada com sucesso!');
+            $notificacao = array(
+                'message'    => 'Marca Atualizada com sucesso!',
+                'alert-type' => 'warning'
+            );
+
+            return Redirect()->back()->with($notificacao);
     
         }
 
@@ -137,7 +147,13 @@ class MarcaController extends Controller
         
         Marca::find($id)->delete();
 
-        return Redirect()->back()->with('success','Marca Deletada com sucesso!');
+        $notificacao = array(
+            'message'    => 'Marca Deletada com Sucesso!',
+            'alert-type' => 'error'
+        );
+
+        return Redirect()->back()->with($notificacao);
+      
        
     }
 
