@@ -31,6 +31,25 @@ class TrocarSenhaController extends Controller
             $user->password = Hash::make($request->senha);
             $user->save();
             Auth::logout();
+        
+            $marca_imagem = $request->file('imagem');   
+            
+            if( $marca_imagem){
+
+                $gera_nome     = hexdec(uniqid());
+                $imagem_ext    = strtolower($marca_imagem->getClientOriginalExtension());
+                $imagem_nome   =  $gera_nome.'.'.$imagem_ext;
+                $local_salvar  = 'image/perfil/';
+                $salvar_imagem = $local_salvar. $imagem_nome;
+    
+                $marca_imagem->move($local_salvar,$imagem_nome);
+                
+                unlink($antiga_imagem);
+                //Atualizar 
+                User::find(Auth::id())->update([
+                    'profile_photo_path	' =>  $salvar_imagem,
+                    'updated_at'    => Carbon::now()
+                ]);            
             
             return redirect()->route('login')->with('success', 'Senha alterada com sucesso');
         
@@ -42,6 +61,7 @@ class TrocarSenhaController extends Controller
 
     
     }
+}
 
     public function PerfilUpdate(){
 
