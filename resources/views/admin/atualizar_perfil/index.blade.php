@@ -31,6 +31,12 @@
 
                 </div>
 
+                <div class="form-group">
+                    <label for="exampleFormControlInput3">E-mail do usuário</label>
+                    <input type="file" name="imagem" class="form-control" id="current_password" placeholder="Senha atual" value="{{ $user['email'] }}" required>
+
+                </div>
+
                 <div class="form-footer pt-4 pt-5 mt-4 border-top">
                     <button type="submit" class="btn btn-primary btn-default">Atualizar</button>
                     <button type="submit" class="btn btn-secondary btn-default">Cancel</button>
