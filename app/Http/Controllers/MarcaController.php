@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Image;
+id3lv@n14
 
 
 class MarcaController extends Controller
