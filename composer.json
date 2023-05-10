@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
         "laravel/framework": "^8.54",
-        "laravel/jetstream": "^2.6",
+        "laravel/jetstream": "^2.9",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravellegends/pt-br-validator": "^9.0",
